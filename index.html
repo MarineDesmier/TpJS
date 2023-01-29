@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tp révision JS avec Jonathan - CRUD receipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>firstTab()</script>
+</head>
+
+<body>
+    <!-- <script>
+        fetch('https://jsonplaceholder.typicode.com/todos/') //fournis la réponse
+            .then(response => response.json())// traduit la reponse
+            .then(
+                todos => console.log(todos)
+            )
+    </script> -->
+    <header>
+        <div id="imageFond" class="p-5 text-center bg-image"></div>
+    </header>
+
+    <table id="tableRecette" class="table table-bordered border-primary mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Nombre de personne</th>
+                <th scope="col">Description</th>
+                <th scope="col">Lien recette</th>
+                <!--<th scope="col">Ingrédients</th> tableau d'ingrédients -->
+                <th scope="col">Bouton</th>
+            </tr>
+        </thead>
+        <tbody id="data_receipe">
+            <!-- ici va s'ajouter les données récupéré dans le json -->
+        </tbody>
+    </table> <!-- fin de mon tableau json -->
+
+    <!-- Début de mon formulaire pour ajouter un champ au json -->
+    <form class="w-50 p-3"> 
+        <div class="row mb-3 form-group">
+            <label for="inputName" class="p-2">Nom</label>
+            <div class="col-sm-10">
+                <input required type="text" class="form-control" id="inputName" value="">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputNbPerson" class="p-2">Nombre de personne</label>
+            <div class="col-sm-10">
+                <input required type="text" class="form-control" id="inputNbPerson" value="">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputDescription" class="p-2">Description</label>
+            <div class="col-sm-10">
+                <input required type="text" class="form-control" id="inputDescription" value="">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputLink" class="p-2">Lien recette</label>
+            <div class="col-sm-10">
+                <input required type="text" class="form-control" id="inputLink" value="">
+            </div>
+        </div>
+        <div class="row" id="listIngredients">
+            <h3>Ingrédients</h3>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="inputLink">Nom</label>
+                        <input required type="text" class="form-control" name="ingredientName[]" value="" id="nomIngr">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="inputLink">Quantité</label>
+                        <input required type="number" class="form-control" name="ingredientQuantite[]" value="0" id="quantiteIngr">
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="form-group">
+                        <label for="inputLink">Unité</label>
+                        <input required type="text" class="form-control" name="ingredientUnite[]" value="" id="uniteIngr">
+                    </div>
+                </div>
+    
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center p-4" id="listIngredientsBtn">
+            <button type="button" class="btn btn-primary" onclick="addIngredient()">+ ingrédient</button>
+        </div>
+        <div class="d-grid gap-2 d-md-flex" style="position: relative;">
+            <button type="submit" class="btn btn-warning btn-lg" onclick="addRecette()" id="btnAjout">Ajouter</button>
+        </div>
+    </form> 
+</body>
+
+</html>

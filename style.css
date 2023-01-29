@@ -1,0 +1,10 @@
+#imageFond {
+    height: 450px;
+    background-image: url(../images/cuisine.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#btnAjout {
+    position: relative;
+}
